@@ -1,0 +1,47 @@
+/* Progress-controlled animations for GIF export */
+
+/* Base fade-in animation */
+.animate-progress-fade-in {
+  opacity: var(--animation-progress) !important;
+}
+
+/* Float animation */
+.animate-progress-float {
+  transform: translateY(calc((0.5 - var(--animation-progress)) * 20px)) !important;
+}
+
+/* Pulse animation */
+.animate-progress-pulse-soft {
+  opacity: calc(0.8 + (var(--animation-progress) * 0.2)) !important;
+}
+
+/* Shimmer effect */
+.animate-progress-shimmer::after {
+  left: calc(-100% + (var(--animation-progress) * 300%)) !important;
+}
+
+/* Bounce animation */
+.animate-progress-bounce-subtle {
+  transform: translateY(calc(sin(var(--animation-progress) * 6.28) * -5px)) !important;
+}
+
+/* Typing animation */
+.animate-progress-typing {
+  width: calc(var(--animation-progress) * 100%) !important;
+  border-right: 2px solid !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+/* Wave animation */
+.animate-progress-wave {
+  transform: translateY(calc(sin(var(--animation-progress) * 6.28) * 5px)) !important;
+}
+
+/* Glitch animation */
+.animate-progress-glitch-anim {
+  transform: translate(
+    calc(sin(var(--animation-progress) * 12.56) * 2px),
+    calc(cos(var(--animation-progress) * 12.56) * 2px)
+  ) !important;
+}

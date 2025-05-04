@@ -1,0 +1,803 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base */
+    --background: 210 45% 97%; /* Very light, soft sky blue - brighter & softer than original */
+    --foreground: 215 25% 35%; /* Muted, darker blue-grey - softer than pure black, like hair shadows */
+
+    /* Cards & Popovers */
+    --card: 210 30% 99%;      
+    --card-foreground: 215 25% 35%;
+
+    --popover: 210 30% 99%;    
+    --popover-foreground: 215 25% 35%; 
+
+    /* Primary Actions (Inspired by the vibrant eyes) */
+    --primary: 205 85% 58%;     
+    --primary-foreground: 210 100% 98%; 
+
+    /* Secondary Actions (Inspired by sky gradients/soft accents) */
+    --secondary: 265 50% 78%;     
+    --secondary-foreground: 260 50% 25%;
+
+    /* Muted Elements (Inspired by clothing/hair base) */
+    --muted: 212 35% 93%;     
+    --muted-foreground: 215 20% 55%;
+
+    /* Accent (Can reuse Secondary or Primary, or use another subtle tone) */
+    --accent: 265 50% 78%;       
+    --accent-foreground: 260 50% 25%;
+
+    /* Destructive Actions (Keep standard, maybe slightly softer) */
+    --destructive: 0 70% 65%;       
+    --destructive-foreground: 0 0% 100%; 
+
+    --border: 210 30% 90%; 
+    --input: 210 30% 96%;      
+    --ring: 205 80% 65%;       
+
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 275 83% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 275 83% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.canvas-container {
+  @apply relative overflow-hidden rounded-lg border border-border bg-card shadow-md transition-all duration-300;
+}
+
+.pattern-grid {
+  background-image: linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(rgba(128, 128, 128, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-waves {
+  background: linear-gradient(45deg, rgba(128, 128, 128, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(128, 128, 128, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(128, 128, 128, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(128, 128, 128, 0.05) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.pattern-zigzag {
+  background: linear-gradient(135deg, rgba(128, 128, 128, 0.1) 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, rgba(128, 128, 128, 0.1) 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, rgba(128, 128, 128, 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(128, 128, 128, 0.1) 25%, transparent 25%);
+  background-size: 20px 20px;
+}
+
+.pattern-polka {
+  background-image: radial-gradient(rgba(128, 128, 128, 0.2) 2px, transparent 2px),
+    radial-gradient(rgba(128, 128, 128, 0.2) 2px, transparent 2px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.pattern-triangles {
+  background-image: linear-gradient(60deg, rgba(128, 128, 128, 0.1) 25%, transparent 25%),
+    linear-gradient(120deg, rgba(128, 128, 128, 0.1) 25%, transparent 25%);
+  background-size: 20px 20px;
+}
+
+.pattern-hexagons {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(128, 128, 128, 0) 8px,
+    rgba(128, 128, 128, 0.1) 9px,
+    rgba(128, 128, 128, 0) 10px
+  );
+  background-size: 30px 30px;
+}
+
+.pattern-stripes {
+  background-image: linear-gradient(
+    45deg,
+    rgba(128, 128, 128, 0.1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(128, 128, 128, 0.1) 50%,
+    rgba(128, 128, 128, 0.1) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+}
+
+.pattern-confetti {
+  background-image: radial-gradient(circle at 25% 25%, rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(181, 97, 245, 0.2) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.2) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.pattern-circuit {
+  background-image: linear-gradient(0deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);
+}
+
+.gradient-lavender {
+  background: linear-gradient(135deg, #dfb6ff 0%, #9e3ce7 100%);
+}
+
+.gradient-bluelavender {
+  background: linear-gradient(135deg, #7dd3fc 0%, #b561f5 100%);
+}
+
+.gradient-sunset {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}
+
+.gradient-forest {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+}
+
+.gradient-candy {
+  background: linear-gradient(135deg, #dfb6ff 0%, #38bdf8 100%);
+}
+
+.gradient-pastel {
+  background: linear-gradient(135deg, #fbf5ff 0%, #e0f2fe 100%);
+}
+
+.gradient-neon {
+  background: linear-gradient(135deg, #22d3ee 0%, #b561f5 100%);
+}
+
+.gradient-cosmic {
+  background: linear-gradient(135deg, #0c4a6e 0%, #3e0764 100%);
+}
+
+.gradient-midnight {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.gradient-ocean {
+  background: linear-gradient(135deg, #0ea5e9 0%, #075985 100%);
+}
+
+.gradient-fire {
+  background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+}
+
+.gradient-retro {
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+}
+
+.gradient-tech {
+  background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
+}
+
+.glass-effect {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.dark .shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 200% 100%;
+}
+
+.settings-panel {
+  @apply bg-background/95 backdrop-blur-sm border-t border-border transition-all duration-300;
+}
+
+.neko-card {
+  @apply bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-xl shadow-lg overflow-hidden border border-gray-100/50 dark:border-gray-800/50 transition-all duration-300;
+}
+
+.neko-input {
+  @apply bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/80 dark:border-gray-700/80 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
+.neko-button {
+  @apply bg-primary text-white rounded-lg px-4 py-2 hover:bg-primary/90 transition-colors;
+}
+
+.neko-tab {
+  @apply px-4 py-2 rounded-lg text-sm font-medium transition-colors;
+}
+
+.neko-tab-active {
+  @apply bg-primary/10 text-primary dark:bg-primary/20;
+}
+
+.neko-tab-inactive {
+  @apply text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100;
+}
+
+.neko-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+.neko-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.neko-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.neko-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.neko-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+.neko-logo {
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.3));
+}
+
+.dark .neko-logo {
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+}
+
+.filter-grayscale {
+  filter: grayscale(100%);
+}
+
+.filter-sepia {
+  filter: sepia(100%);
+}
+
+.filter-invert {
+  filter: invert(100%);
+}
+
+.filter-brightness-110 {
+  filter: brightness(110%);
+}
+
+.filter-contrast-125 {
+  filter: contrast(125%);
+}
+
+.filter-saturate-150 {
+  filter: saturate(150%);
+}
+
+.filter-hue-rotate-90 {
+  filter: hue-rotate(90deg);
+}
+
+.filter-blur-sm {
+  filter: blur(2px);
+}
+
+.filter-drop-shadow {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Enhanced background patterns */
+.bg-grid-pattern {
+  background-size: 30px 30px;
+  background-image: linear-gradient(to right, rgba(176, 190, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(176, 190, 255, 0.1) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(176, 190, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(176, 190, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Floating animation for background elements */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(0) translateX(10px);
+  }
+  75% {
+    transform: translateY(10px) translateX(5px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end) infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-in-out;
+}
+
+.animate-glitch-anim {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.animate-wave {
+  animation: wave 2s ease-in-out infinite;
+}
+
+.filter-duotone {
+  filter: sepia(1) hue-rotate(180deg) saturate(2);
+}
+
+.filter-glitch-filter {
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-glitch-filter::before,
+.filter-glitch-filter::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+}
+
+.filter-glitch-filter::before {
+  left: 2px;
+  background-color: rgba(255, 0, 0, 0.2);
+  animation: glitch 0.3s infinite;
+}
+
+.filter-glitch-filter::after {
+  left: -2px;
+  background-color: rgba(0, 255, 255, 0.2);
+  animation: glitch 0.3s infinite reverse;
+}
+
+.filter-hologram {
+  filter: brightness(1.2) contrast(1.2) saturate(1.5);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7), 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+.filter-noise {
+  position: relative;
+}
+
+.filter-noise::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes flip {
+  0%,
+  100% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 40% 30% 70% 50%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 30% / 30% 60% 40% 70%;
+  }
+}
+
+@keyframes zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+.animate-flip {
+  animation: flip 2s ease-in-out infinite;
+  backface-visibility: visible;
+}
+
+.animate-morph {
+  animation: morph 8s ease-in-out infinite;
+}
+
+.animate-zoom {
+  animation: zoom 2s ease-in-out infinite;
+}
+
+@keyframes floating-light {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-15px) scale(1.05);
+  }
+}
+
+@keyframes gentle-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes soft-rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sparkle-fade {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes dreamy-float {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0);
+  }
+  75% {
+    transform: translateY(5px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.animate-floating-light {
+  animation: floating-light 6s ease-in-out infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 4s ease-in-out infinite;
+}
+
+.animate-soft-rotation {
+  animation: soft-rotation 30s linear infinite;
+}
+
+.animate-sparkle-fade {
+  animation: sparkle-fade 3s ease-in-out infinite;
+}
+
+.animate-dreamy-float {
+  animation: dreamy-float 8s ease-in-out infinite;
+}
+
+/* Add new glass card styles */
+.neko-glass-card {
+  @apply relative overflow-hidden rounded-xl backdrop-blur-lg border border-white/20 shadow-xl transition-all duration-300;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.dark .neko-glass-card {
+  @apply border-white/10;
+  background: linear-gradient(135deg, rgba(20, 20, 40, 0.5) 0%, rgba(15, 15, 30, 0.3) 100%);
+}
+
+/* Anime-inspired neko styling */
+.neko-theme-light {
+  background: linear-gradient(135deg, #e0f2fe 0%, #fbf5ff 50%, #e0f2fe 100%);
+}
+
+.dark .neko-theme-light {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+}
+
+/* Enhanced particle effects */
+.neko-particle {
+  @apply absolute rounded-full pointer-events-none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.dark .neko-particle {
+  background: radial-gradient(circle, rgba(143, 182, 255, 0.3) 0%, rgba(143, 182, 255, 0) 70%);
+}
+
+.neko-star {
+  @apply absolute pointer-events-none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E");
+  background-size: contain;
+  opacity: 0.5;
+}
+
+.dark .neko-star {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238fb6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+/* Enhance scrollbars for anime theme */
+.neko-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 255, 0.5);
+  border-radius: 20px;
+}
+
+.dark .neko-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(143, 182, 255, 0.3);
+}
+
+/* Dreamy gradient backgrounds */
+.gradient-dreamy-blue {
+  background: linear-gradient(135deg, #bae6fd 0%, #a5b4fc 100%);
+}
+
+.dark .gradient-dreamy-blue {
+  background: linear-gradient(135deg, #0c4a6e 0%, #4338ca 100%);
+}
+
+.gradient-pastel-dream {
+  background: linear-gradient(135deg, #dbeafe 0%, #f5d0fe 100%);
+}
+
+.dark .gradient-pastel-dream {
+  background: linear-gradient(135deg, #1e3a8a 0%, #701a75 100%);
+}
+
+/* Glow effects */
+.neko-glow {
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5), 0 0 30px rgba(56, 189, 248, 0.2);
+}
+
+.dark .neko-glow {
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5), 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+.neko-glow-purple {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5), 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.dark .neko-glow-purple {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5), 0 0 30px rgba(168, 85, 247, 0.3);
+}
+
+/* Additional gradient options inspired by the anime image */
+.gradient-sky-dream {
+  background: linear-gradient(135deg, #7dd3fc 0%, #c4b5fd 100%);
+}
+
+.dark .gradient-sky-dream {
+  background: linear-gradient(135deg, #0369a1 0%, #6d28d9 100%);
+}
+
+.gradient-twilight {
+  background: linear-gradient(180deg, #bae6fd 0%, #c084fc 100%);
+}
+
+.dark .gradient-twilight {
+  background: linear-gradient(180deg, #075985 0%, #7e22ce 100%);
+}
+
+/* Fix for animations to work with transforms */
+.animate-float {
+  animation: float 6s ease-in-out infinite !important;
+  transform-origin: center !important;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite !important;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite !important;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite !important;
+  transform-origin: center !important;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 8s linear infinite !important;
+  transform-origin: center !important;
+}
+
+/* Ensure animations don't conflict with positioning transforms */
+[class*="animate-"] {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
