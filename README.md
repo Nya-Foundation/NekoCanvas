@@ -2,7 +2,11 @@
 
 <div align="center">
   
+<<<<<<< HEAD
   <img src="https://raw.githubusercontent.com/Nya-Foundation/neko-canvas/images/header.png" width="400" />
+=======
+  <img src="https://raw.githubusercontent.com/Nya-Foundation/neko-canvas/refs/heads/main/images/header.png" width="400" />
+>>>>>>> df30064 (fix: fix README.md image link, push exported file for github page)
   
   **A developer-friendly tool for creating GitHub repository headers**
   
@@ -65,9 +69,15 @@ NekoCanvas provides a simple interface to create your repository header:
 Here are some examples of headers created with NekoCanvas:
 
 <div align="center">
+<<<<<<< HEAD
   <img src="images/example_1.png" width="600" alt="Example Header 1" />
   <br><br>
   <img src="images/example_2.png" width="600" alt="Example Header 2" />
+=======
+  <img src="https://raw.githubusercontent.com/Nya-Foundation/neko-canvas/refs/heads/main/images/exmaple_1.png" width="600" alt="Example Header 1" />
+  <br><br>
+  <img src="https://raw.githubusercontent.com/Nya-Foundation/neko-canvas/refs/heads/main/images/exmaple_2.png" width="600" alt="Example Header 2" />
+>>>>>>> df30064 (fix: fix README.md image link, push exported file for github page)
 </div>
 
 ## 🤝 Contributing
