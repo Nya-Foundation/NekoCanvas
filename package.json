@@ -44,7 +44,6 @@
     "cmdk": "1.0.4",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
-    "gh-pages": "^6.3.0",
     "gif.js": "^0.2.0",
     "html2canvas": "latest",
     "input-otp": "1.4.1",
@@ -72,5 +71,5 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   },
-  "homepage": "https://nya-foundation.github.io/neko-canvas/"
+  "homepage": "https://nya-foundation.github.io/NekoCanvas/"
 }

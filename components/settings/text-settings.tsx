@@ -67,6 +67,11 @@ const textEffectOptions = [
   { value: "retro", label: "Retro" },
   { value: "neon", label: "Neon Glow" },
   { value: "glitch", label: "Glitch" },
+  { value: "blur", label: "Blur" },
+  { value: "underline", label: "Underline" },
+  { value: "strikethrough", label: "Strikethrough" },
+  { value: "italic", label: "Italic" },
+  { value: "highlight", label: "Highlight" },
 ];
 
 const animationOptions = [

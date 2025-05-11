@@ -2,11 +2,11 @@
 
 <div align="center">
   
-  <img src="https://raw.githubusercontent.com/Nya-Foundation/neko-canvas/main/images/header.png" width="800" />
+  <img src="https://raw.githubusercontent.com/Nya-Foundation/NekoCanvas/main/images/header.png" width="800" />
   
   **A developer-friendly tool for creating GitHub repository headers**
   
-  [🔥 Live Demo](https://nya-foundation.github.io/neko-canvas/) | [🐱 Repository](https://github.com/Nya-Foundation/neko-canvas)
+  [🔥 Live Demo](https://nya-foundation.github.io/NekoCanvas/) | [🐱 Repository](https://github.com/Nya-Foundation/NekoCanvas)
   
 </div>
 
@@ -21,16 +21,16 @@ NekoCanvas is a specialized tool that lets developers generate visually appealin
 
 ### Option 1: Use Online Version
 
-Visit [NekoCanvas Demo](https://nya-foundation.github.io/neko-canvas/) to use without installation.
+Visit [NekoCanvas Demo](https://nya-foundation.github.io/NekoCanvas/) to use without installation.
 
 ### Option 2: Self-host
 
 ```bash
 # Clone the repository
-git clone https://github.com/Nya-Foundation/neko-canvas.git
+git clone https://github.com/Nya-Foundation/NekoCanvas.git
 
 # Navigate to project directory
-cd neko-canvas
+cd NekoCanvas
 
 # Install dependencies (using bun)
 bun install
@@ -65,9 +65,9 @@ NekoCanvas provides a simple interface to create your repository header:
 Here are some examples of headers created with NekoCanvas:
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Nya-Foundation/neko-canvas/main/images/example_1.png" width="600" alt="Example Header 1" />
+  <img src="https://raw.githubusercontent.com/Nya-Foundation/NekoCanvas/main/images/example_1.png" width="600" alt="Example Header 1" />
   <br><br>
-  <img src="https://raw.githubusercontent.com/Nya-Foundation/neko-canvas/main/images/example_2.png" width="600" alt="Example Header 2" />
+  <img src="https://raw.githubusercontent.com/Nya-Foundation/NekoCanvas/main/images/example_2.png" width="600" alt="Example Header 2" />
 </div>
 
 ## 🤝 Contributing
@@ -80,10 +80,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Support
 
-Need help? Create an [issue](https://github.com/Nya-Foundation/neko-canvas/issues) on GitHub.
+Need help? Create an [issue](https://github.com/Nya-Foundation/NekoCanvas/issues) on GitHub.
 
 ---
 
 <div align="center">
-  Made with ❤️ by the NekoCanvas Team
+  Made with ❤️ by the Nya Foundation Team
 </div>

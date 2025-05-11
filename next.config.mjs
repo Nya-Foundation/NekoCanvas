@@ -10,9 +10,9 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "export",
-  // Add basePath and assetPrefix for GitHub Pages
-  basePath: "/neko-canvas",
-  assetPrefix: "/neko-canvas/",
+  // Add basePath and assetPrefix for GitHub Pages only in production
+  basePath: process.env.NODE_ENV === "production" ? "/NekoCanvas" : "",
+  assetPrefix: process.env.NODE_ENV === "production" ? "/NekoCanvas/" : "",
 };
 
 export default nextConfig;

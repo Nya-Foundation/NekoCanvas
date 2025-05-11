@@ -17,7 +17,6 @@ import {
   ChevronUp,
   ChevronDown,
   Sparkles,
-  Cat,
   FileImageIcon as FileGif,
   Undo,
   Redo,
@@ -30,6 +29,7 @@ import type { CanvasConfig } from "@/lib/types";
 import { HistoryManager } from "@/lib/history-manager";
 import { ZoomControls } from "@/components/zoom-controls";
 import { AnimeBackground } from "@/components/anime-background";
+import { getAssetPath } from "@/lib/utils";
 
 export function NekoCanvas() {
   const [config, setConfig] = useState<CanvasConfig>(defaultCanvasConfig);
@@ -303,8 +303,12 @@ export function NekoCanvas() {
       <header className="py-4 px-6 flex justify-between items-center border-b border-border/50 bg-background/90 backdrop-blur-md z-10">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <Cat className="h-8 w-8 text-primary neko-logo animate-pulse-soft" />
-            <div className="absolute -top-1 -right-1 h-3 w-3 bg-secondary rounded-full animate-pulse"></div>
+            <img
+              src={getAssetPath("/logo.svg")}
+              alt="NekoCanvas Logo"
+              className="h-16 w-16"
+            />
+            <div className="absolute -top-1 -right-1 h-3 w-3"></div>
           </div>
           <div>
             <h1 className="text-2xl font-bold neko-gradient-text">

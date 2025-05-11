@@ -4,6 +4,7 @@ import type React from "react";
 
 import { forwardRef } from "react";
 import type { CanvasConfig } from "@/lib/types";
+import { getAssetPath } from "@/lib/utils";
 
 interface CanvasPreviewProps {
   config: CanvasConfig;
@@ -89,7 +90,8 @@ export const CanvasPreview = forwardRef<HTMLDivElement, CanvasPreviewProps>(
         textShadow: title.shadow ? "0 2px 4px rgba(0,0,0,0.2)" : "none",
         letterSpacing: title.letterSpacing || "normal",
         lineHeight: title.lineHeight || "1.2",
-        textTransform: title.transform || "none",
+        textTransform: (title.transform ||
+          "none") as React.CSSProperties["textTransform"],
         transition: "all 0.3s ease",
         position: "relative", // Use relative positioning
       };
@@ -139,6 +141,21 @@ export const CanvasPreview = forwardRef<HTMLDivElement, CanvasPreviewProps>(
       } else if (title.effect === "glitch") {
         style.position = "relative";
         // The actual glitch effect will be applied via CSS class
+      } else if (title.effect === "blur") {
+        style.filter = "blur(1.5px)";
+      } else if (title.effect === "underline") {
+        style.textDecoration = "underline";
+        style.textDecorationThickness = "2px";
+        style.textUnderlineOffset = "4px";
+      } else if (title.effect === "strikethrough") {
+        style.textDecoration = "line-through";
+        style.textDecorationThickness = "2px";
+      } else if (title.effect === "italic") {
+        style.fontStyle = "italic";
+      } else if (title.effect === "highlight") {
+        style.backgroundColor = title.outlineColor || "#ffff00";
+        style.padding = "0 4px";
+        style.borderRadius = "2px";
       }
 
       return style;
@@ -155,7 +172,8 @@ export const CanvasPreview = forwardRef<HTMLDivElement, CanvasPreviewProps>(
         textShadow: subtitle.shadow ? "0 1px 2px rgba(0,0,0,0.2)" : "none",
         letterSpacing: subtitle.letterSpacing || "normal",
         lineHeight: subtitle.lineHeight || "1.5",
-        textTransform: subtitle.transform || "none",
+        textTransform: (subtitle.transform ||
+          "none") as React.CSSProperties["textTransform"],
         transition: "all 0.3s ease",
         position: "relative", // Use relative positioning
       };
@@ -178,6 +196,9 @@ export const CanvasPreview = forwardRef<HTMLDivElement, CanvasPreviewProps>(
         style.textShadow = `0 0 5px ${
           subtitle.glowColor || "rgba(56, 189, 248, 0.7)"
         }, 0 0 10px ${subtitle.glowColor || "rgba(56, 189, 248, 0.5)"}`;
+      } else if (subtitle.effect === "outline") {
+        style.WebkitTextStroke = `1px ${title.outlineColor || "#000000"}`;
+        style.color = subtitle.color || "#ffffff";
       } else if (subtitle.effect === "shadow") {
         style.textShadow = "1px 1px 3px rgba(0, 0, 0, 0.5)";
       } else if (subtitle.effect === "emboss") {
@@ -197,6 +218,21 @@ export const CanvasPreview = forwardRef<HTMLDivElement, CanvasPreviewProps>(
       } else if (subtitle.effect === "glitch") {
         style.position = "relative";
         // The actual glitch effect will be applied via CSS class
+      } else if (subtitle.effect === "blur") {
+        style.filter = "blur(1.5px)";
+      } else if (subtitle.effect === "underline") {
+        style.textDecoration = "underline";
+        style.textDecorationThickness = "2px";
+        style.textUnderlineOffset = "4px";
+      } else if (subtitle.effect === "strikethrough") {
+        style.textDecoration = "line-through";
+        style.textDecorationThickness = "2px";
+      } else if (subtitle.effect === "italic") {
+        style.fontStyle = "italic";
+      } else if (subtitle.effect === "highlight") {
+        style.backgroundColor = subtitle.outlineColor || "#ffff00";
+        style.padding = "0 4px";
+        style.borderRadius = "2px";
       }
 
       return style;
@@ -291,7 +327,9 @@ export const CanvasPreview = forwardRef<HTMLDivElement, CanvasPreviewProps>(
                 <img
                   src={
                     logo.url ||
-                    "/placeholder.svg?height=80&width=80&query=project logo"
+                    getAssetPath(
+                      "/logo.svg?height=80&width=80&query=project logo"
+                    )
                   }
                   alt="Project Logo"
                   style={logoStyle}
